@@ -1,12 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 public class WorkTime extends JFrame {
 	
 	// Set up row 0
-	// today's date is...
+        JPanel row0 = new JPanel();
+	// Adds text and room for output
+	JLabel dateText = new JLabel("Today's date is ", JLabel.RIGHT);
+	JTextField dateField = new JTextField(18); // Fits the longest possible date	
 	
-	// Set up row 1
+        // Set up row 1
 	JPanel row1 = new JPanel();
 	// Adds text
 	JLabel startTimeText = new JLabel("What time does your shift start?");
@@ -66,13 +70,68 @@ public class WorkTime extends JFrame {
         
     public WorkTime() {
     	// Sets up defaults for UI
-        super("Work Time Keeper");
+        super("Work Time Calculator");
         setLookAndFeel();
         setSize(600,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Sets up layout for entire app
         FlowLayout flow = new FlowLayout();
         setLayout(flow);
+        
+        // Sets up layout for row 0
+        FlowLayout layout0 = new FlowLayout(FlowLayout.CENTER, 10, 10);
+        // Adds the components of row 0 using layout0
+        row0.setLayout(layout0);
+        row0.add(dateText);
+        row0.add(dateField);
+        // Set up date
+        Calendar now = Calendar.getInstance();
+        int month = now.get(Calendar.MONTH) + 1;
+        int day = now.get(Calendar.DAY_OF_MONTH);
+        int year = now.get(Calendar.YEAR);
+        // Display the name of the month
+        switch (month) {
+            case 1:
+                System.out.print("January");
+                break;
+            case 2:
+                System.out.print("February");
+                break;
+            case 3:
+                System.out.print("March");
+                break;
+            case 4:
+                System.out.print("April");
+                break;
+            case 5:
+                System.out.print("May");
+                break;
+            case 6:
+                System.out.print("June");
+                break;
+            case 7:
+                System.out.print("July");
+                break;
+            case 8:
+                System.out.print("August");
+                break;
+            case 9:
+                System.out.print("September");
+                break;
+            case 10:
+                System.out.print("October");
+                break;
+            case 11:
+                System.out.print("November");
+                break;
+            case 12:
+                System.out.print("December");
+        }
+
+        // display the date and year
+        System.out.println(" " + day + ", " + year);
+        dateField.setEditable(false);
+        add(row0);
         
         // Sets up layout for row 1
         FlowLayout layout1 = new FlowLayout(FlowLayout.CENTER, 10, 10);
@@ -135,7 +194,7 @@ public class WorkTime extends JFrame {
         row4.setLayout(layout4);
         row4.add(leaveText);
         row4.add(leaveTime);
-        leaveTime.setEditable(false); // not sure if this is right
+        leaveTime.setEditable(false);
         add(row4);
         
         /*
