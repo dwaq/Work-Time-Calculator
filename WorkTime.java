@@ -90,46 +90,48 @@ public class WorkTime extends JFrame {
         int day = now.get(Calendar.DAY_OF_MONTH);
         int year = now.get(Calendar.YEAR);
         // Display the name of the month
+        String monthName = "";
         switch (month) {
             case 1:
-                System.out.print("January");
+                monthName = ("January");
                 break;
             case 2:
-                System.out.print("February");
+                monthName = ("February");
                 break;
             case 3:
-                System.out.print("March");
+                monthName = ("March");
                 break;
             case 4:
-                System.out.print("April");
+                monthName = ("April");
                 break;
             case 5:
-                System.out.print("May");
+                monthName = ("May");
                 break;
             case 6:
-                System.out.print("June");
+                monthName = ("June");
                 break;
             case 7:
-                System.out.print("July");
+                monthName = ("July");
                 break;
             case 8:
-                System.out.print("August");
+                monthName = ("August");
                 break;
             case 9:
-                System.out.print("September");
+                monthName = ("September");
                 break;
             case 10:
-                System.out.print("October");
+                monthName = ("October");
                 break;
             case 11:
-                System.out.print("November");
+                monthName = ("November");
                 break;
             case 12:
-                System.out.print("December");
+                monthName = ("December");
         }
 
         // display the date and year
-        System.out.println(" " + day + ", " + year);
+        dateField.setText(monthName + " " + day + ", " + year);
+        datefield.setHorizontalAlignment(JTextField.CENTER);
         dateField.setEditable(false);
         add(row0);
         
